@@ -8,37 +8,45 @@
 <body>
     <img src="logo.png" alt="An image of ministry logo">
     <img src="label.png" alt="An image of ministry label">
-<nav class="menu">
-    <ul>
-      <li><a href="./index.html">الرئيسية</a></li>
-    </ul>
-</nav>
-<p>الرجاء مليء المعلومات التالية</p>
-<form action="/" method="post">
-
-    <div>
-        <label for="firstname">الاسم</label>
-        <input type="text" id="firstname" name="fname" required>
-    </div>
-    <div>
-        <label for="age">العمر</label>
-        <input type="text" id="age" name="age" required>
-    </div>
-    <div>
-        <label for="age">العنوان</label>
-        <input type="text" id="address" name="address" required>
-    </div>
-    <div>
-        <label for="uessay">الملاحظات</label>
-        <textarea id="uessay" name="essay" rows="1"></textarea>
-        <!-- you could include cols="30" -->
-    </div>
-
-    <div id="frmsubmit">
-        <input type="submit" name="submit" id="submitobey" value="ارسال">
-    </div>
-
-</form>
+    <nav class="menu">
+        <ul>
+            <li><a href="./index.html">الرئيسية</a></li>
+        </ul>
+    </nav>
+    <p>يوفر موقعنا امكانية التسجيل</p>
+    <div class="container">
+        <div class="wrapper animated fadeInUp">
+          <div class="contact">
+            <h3>الرجاء مليء المعلومات التالية</h3>
+            <div class="alert">Your message has been sent</div>
+            <form id="contactForm">
+              <p>
+                <label>الاسم</label>
+                <input type="text" name="name" id="name" required>
+              </p>
+                </br>
+               <p>
+                <label>البريد الالكتروني</label>
+                <input type="email" name="email" id="email" required>
+              </p>
+            </br>
+              <p>
+                <label>رقم الهاتف</label>
+                <input type="text" name="phone" id="phone">
+              </p>
+              <p class="full">
+                <label>الرسالة</label>
+                <textarea name="message" id="message" rows="5"></textarea>
+              </p>
+              <p class="full">
+                <button type="submit">تقديم</button>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+      <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+      <script src="main.js"></script>
 <footer>
     جمهورية العراق
     <br>
