@@ -1,4 +1,4 @@
-firebase functions:config:set twilio.sid="AC3cfc0aae1505c34a07c69ea48a01392b" twilio.token="9308844c276fcd5f05bef3198a0d16f9"
+firebase functions:config:set twilio.sid="Account Sid" twilio.token="Auth Token"
 https://www.twilio.com/console/sms/logs
 
 firebase init
