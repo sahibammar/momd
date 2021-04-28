@@ -1,0 +1,7 @@
+firebase functions:config:set twilio.sid="AC3cfc0aae1505c34a07c69ea48a01392b" twilio.token="9308844c276fcd5f05bef3198a0d16f9"
+https://www.twilio.com/console/sms/logs
+
+firebase init
+cd functions
+npm install twilio --save
+firebase deploy --only functions
