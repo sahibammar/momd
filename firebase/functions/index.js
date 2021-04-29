@@ -13,18 +13,18 @@ const twilioNumber = '+12675926532' // your twilio phone number
 
 
 exports.textname = functions.database
-       .ref('/messages')
+       .ref('/messages/{messageId}')
        .onCreate(event => {
 
     console.log(event)
 
 
     return admin.database()
-                .ref(`/messages`)
+                .ref(`/messages/{messageId}`)
                 .once('value')
                 .then(snapshot => snapshot.val())
                 .then(message => {
-                    const name = message.name
+                    //const name = message.name
                     const phone = '+4917658392519'//message.phone
 
                     if ( !validE164(phone) ) {
@@ -32,7 +32,7 @@ exports.textname = functions.database
                     }
 
                     const textMessage = {
-                        body: `شكرا للتسجيل في موفعنا. تم استلام بياناتك بنجاح`,
+                        body: `Thanks for your registeration`,
                         to: phone,  // Text to this number
                         from: twilioNumber // From a valid Twilio number
                     }
