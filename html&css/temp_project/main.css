@@ -20,6 +20,9 @@ footer {
     margin-right: auto;
     padding: 30px;
     font-weight: bold;
+    font-size: x-large;
+    background-color: lightgrey;
+    color: blue;
 }
 
 ul {
