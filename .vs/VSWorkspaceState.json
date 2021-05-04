@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\firebase",
-    "\\firebase\\functions",
     "\\html&css",
-    "\\html&css\\momd_project"
+    "\\html&css\\temp_project"
   ],
-  "SelectedNode": "\\firebase\\functions\\index.js",
+  "SelectedNode": "\\html&css\\temp_project\\index.html",
   "PreviewInSolutionExplorer": false
 }
