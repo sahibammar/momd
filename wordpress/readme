@@ -1,3 +1,15 @@
+
+Method 1:
+docker pull wordpress
+
+docker run --name some-wordpress -p 8080:80 -d wordpress
+
+docker ps
+
+docker stop some-wordpress
+docker rm -f some-wordpress
+
+Method 2:
 --run services
 cd momd/wordpress/
 docker-compose up -d
@@ -12,3 +24,4 @@ password: .......
 
 --shutdown services 
 docker-compose down
+
