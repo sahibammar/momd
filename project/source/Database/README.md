@@ -1,3 +1,3 @@
-# Database
+# Application
 
-Database component goes here
+Application project goes here
