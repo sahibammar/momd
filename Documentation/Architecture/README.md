@@ -20,6 +20,12 @@
 
 **Database:** Data persistence.
 
+![Alt text](./rafaelfgx.png?raw=true "Title")
+![alt text](https://github.com/sahibammar/momd/blob/main/documentation/Architecture/rafaelfgx.png?raw=true)
+            
+
+
+
 **Examples**
 
 .NET 5, ASP.NET Core 5, Entity Framework Core 5, C# 9, Angular 12, Clean Code, SOLID, DDD.
