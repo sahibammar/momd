@@ -1,3 +1,5 @@
-# MOMD HTML & CSS Training 
+# Documentation 
 
-Contains samples of HTML & CSS samples required for the MOMD training course. It also contains a wordpress docker compose configuration to setup wordpress locally. Enjoy coding!
+Here we collect knowledge from different books and web resrouces. There is a directory for each knowledge area.
+
+This should serve as the primary source of comman knowledge threough the phases of the project. 
