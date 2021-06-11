@@ -16,3 +16,7 @@ Then open https://localhost:8090/ in a browser
 
 Note: you might need to change version value from "version": "5.0.301" to "version": "5.0.202" in \Architecture\source\global.json 
 
+**References**
+Architect Modern Web Applications with ASP.NET Core and Azure
+https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure
+
