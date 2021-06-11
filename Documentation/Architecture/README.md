@@ -20,11 +20,7 @@
 
 **Database:** Data persistence.
 
-![Alt text](./rafaelfgx.png?raw=true "Title")
-![alt text](https://github.com/sahibammar/momd/blob/main/documentation/Architecture/rafaelfgx.png?raw=true)
-            
-
-
+![Alt Architecture](./rafaelfgx.png?raw=true "Architecture")            
 
 **Examples**
 
