@@ -31,7 +31,7 @@ RESTful service that needs to be quick and has a small number of database access
 EF Core isn’t a good fit; you could use a fast, but development-time-hungry library because
 there isn’t much to write. But if you have a large application, with lots of boring admin
 accesses and a few important customer-facing accesses, then a hybrid approach could
-work for you (see chapter 13 for an example of a mixed EF Core/Dapperapplication).
+work for you (see chapter 13 for an example of a mixed EF Core/Dapper application).
 
 **Summary**
 - EF Core is an object-relational mapper (O/RM) that uses Microsoft’s Language
