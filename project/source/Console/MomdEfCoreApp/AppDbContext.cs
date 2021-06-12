@@ -7,7 +7,7 @@ namespace MomdEfCoreApp
     {
         private const string ConnectionString =            //#A
             @"Server=(localdb)\mssqllocaldb;
-             Database=MyFirstEfCoreDb;
+             Database=MomdEfCoreDb;
              Trusted_Connection=True";
 
         protected override void OnConfiguring(
