@@ -45,4 +45,5 @@ This O/RM has plenty of features to match many requirements
 https://docs.microsoft.com/en-us/ef/core/
 
 **Book**
+
 Entity Framework Core in Action by Jon Smith, 2018
