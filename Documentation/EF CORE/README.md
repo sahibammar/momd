@@ -39,6 +39,8 @@ Integrated Query (LINQ) to define database queries and return data into linked
 instances of .NET classes.
 - EF Core is designed to make writing code for accessing a database quick and intuitive.
 This O/RM has plenty of features to match many requirements
+- There are many good reasons to consider using EF Core: it’s built on a lot of
+experience, is well supported, and runs on multiple platforms.
 
 **Reference**
 
