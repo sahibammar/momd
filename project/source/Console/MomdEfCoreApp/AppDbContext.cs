@@ -16,7 +16,7 @@ namespace MomdEfCoreApp
             optionsBuilder.UseSqlServer(ConnectionString); //#B
         }
 
-        public DbSet<Book> Books { get; set; }
+        public DbSet<FamilyMember> FamilyMembers { get; set; }
     }
 }
 

@@ -50,3 +50,6 @@ https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx
 **Book**
 
 Entity Framework Core in Action by Jon Smith, 2018
+
+**Plugins**
+https://marketplace.visualstudio.com/items?itemName=michaelsawczyn.EFDesigner

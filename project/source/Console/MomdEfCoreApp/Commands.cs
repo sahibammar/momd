@@ -139,36 +139,38 @@ namespace MomdEfCoreApp
 
         public static void WriteTestData(this AppDbContext db)
         {
-            var martinFowler = new Author
+            var martinFowler = new FamilyFile
             {
-                Name = "Martin Fowler",
-                WebUrl = "http://martinfowler.com/"
+                FullName = "Hamid Sahib Mahdi Witwit",
+                BirthYear = "1965",
+                EntryDate = new DateTime(1999, 7, 8),
+                RegisterationDate= new DateTime(1999, 7, 8)
             };
 
-            var books = new List<Book>
+            var familyMembers = new List<FamilyMember>
             {
-                new Book
+                new FamilyMember
                 {
-                    Title = "Refactoring",
-                    Description = "Improving the design of existing code",
-                    PublishedOn = new DateTime(1999, 7, 8),
-                    Author = martinFowler
-                },
-                new Book
+                    FamilyMemberId = 12345,
+                    Name= "Ammar",
+                    BirthYear= "1978"
+                    
+    },
+                new FamilyMember
                 {
                     Title = "Patterns of Enterprise Application Architecture",
                     Description = "Written in direct response to the stiff challenges",
                     PublishedOn = new DateTime(2002, 11, 15),
                     Author = martinFowler
                 },
-                new Book
+                new FamilyMember
                 {
                     Title = "Domain-Driven Design",
                     Description = "Linking business needs to software design",
                     PublishedOn = new DateTime(2003, 8, 30),
                     Author = new Author { Name = "Eric Evans", WebUrl = "http://domainlanguage.com/"}
                 },
-                new Book
+                new FamilyMember
                 {
                     Title = "Quantum Networking",
                     Description = "Entangled quantum networking provides faster-than-light data communications",
@@ -177,7 +179,7 @@ namespace MomdEfCoreApp
                 }
             };
 
-            db.Books.AddRange(books);
+            db.FamilyMembers.AddRange(familyMembers);
             db.SaveChanges();
         }
     }
