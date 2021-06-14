@@ -45,6 +45,7 @@ experience, is well supported, and runs on multiple platforms.
 **Reference**
 
 https://docs.microsoft.com/en-us/ef/core/
+https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx
 
 **Book**
 
