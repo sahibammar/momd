@@ -15,3 +15,5 @@ Moving of file from one branch to other
 - address and registeration date should be updated
 - new file_number should be created
 - a transition mode should be recorded_
+
+- ID is autoincremented value + branch ID
