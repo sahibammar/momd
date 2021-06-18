@@ -254,6 +254,7 @@ GO
 CREATE TABLE momd..FamilyAssistance (
     FamilyFileIdentifier INT,
     AssistanceCode INT,
+    Amount INT,
     PRIMARY KEY(FamilyFileIdentifier,AssistanceCode),
     FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
     FOREIGN KEY (AssistanceCode) REFERENCES momd..AssistanceLookup(AssistanceCode)
