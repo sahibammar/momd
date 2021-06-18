@@ -262,10 +262,12 @@ CREATE TABLE momd..FamilyAssistance (
 GO
 
 CREATE TABLE momd..FamilyFileChanges (
+    Identifier INT NOT NULL IDENTITY,
     FamilyFileIdentifier INT,
     ChangeCode INT,
     ChangeDate Date,
     ChangeNote VARCHAR(1000),
+    PRIMARY KEY(Identifier),
     FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
     FOREIGN KEY (ChangeCode) REFERENCES momd..ChangeLookup(ChangeCode)
 )
