@@ -106,10 +106,34 @@ CREATE TABLE momd..NoReturnHomeReasonLookup (
 )
 GO
 
-CREATE TABLE momd..FamilyFile (
+CREATE TABLE momd..MantaqaLookup (
+    MantaqaCode INT PRIMARY KEY,
+    MantaqaName VARCHAR(50)
+)
+GO
+
+
+
+CREATE TABLE momd..Member (
+    Identifier INT NOT NULL IDENTITY,
     FullName VARCHAR(250) NOT NULL,
     MotherName VARCHAR(250) NOT NULL,
-    Identifier INT,
+    BirthYear INT,
+    GenderCode INT,
+    MedicalConditions VARCHAR(50),
+    EducationDegree VARCHAR(50),
+    PRIMARY KEY(Identifier),
+    CONSTRAINT MemberUNIQUEName UNIQUE(FullName,MotherName),
+    FOREIGN KEY (GenderCode) REFERENCES momd..GenderLookup(GenderCode)
+)
+GO
+
+
+
+CREATE TABLE momd..FamilyFile (
+    Identifier INT NOT NULL IDENTITY,
+    FullName VARCHAR(250) NOT NULL,
+    MotherName VARCHAR(250) NOT NULL,
     Status VARCHAR(10),
     BirthYear INT,
     PhoneNumber INT,
@@ -139,7 +163,8 @@ CREATE TABLE momd..FamilyFile (
     MartialStatusCode INT,
     MedicalConditionCode INT,
     NoReturnHomeReasonCode INT,
-    PRIMARY KEY(FullName,MotherName),
+    PRIMARY KEY(Identifier),
+    CONSTRAINT FamilyFileUNIQUEName UNIQUE(FullName,MotherName),
     FOREIGN KEY (MohafathaCode) REFERENCES momd..MohafathaLookup (MohafathaCode),
     FOREIGN KEY (QathaaCode) REFERENCES momd..QathaaLookup (QathaaCode),
     FOREIGN KEY (NahyaCode) REFERENCES momd..NahyaaLookup(NahyaaCode),
@@ -160,3 +185,43 @@ CREATE TABLE momd..FamilyFile (
     FOREIGN KEY (MedicalConditionCode) REFERENCES momd..MedicalConditionLookup(MedicalConditionCode),
     FOREIGN KEY (NoReturnHomeReasonCode) REFERENCES momd..NoReturnHomeReasonLookup(NoReturnHomeReasonCode)   
 )
+
+CREATE TABLE momd..Sponsor (
+    Identifier INT NOT NULL IDENTITY,
+    FullName VARCHAR(250) NOT NULL,
+    MotherName VARCHAR(250) NOT NULL,
+    PhoneNumber INT,
+    MahalaNumber INT,
+    ZuqaqNumber INT,
+    DarNumber VARCHAR(10),
+    MohafathaCode INT,
+    QathaaCode INT,
+    NahyaCode INT,
+    MantaqaCode INT,
+    PRIMARY KEY(Identifier),
+    CONSTRAINT SponsorUNIQUEName UNIQUE(FullName,MotherName),
+    FOREIGN KEY (MohafathaCode) REFERENCES momd..MohafathaLookup (MohafathaCode),
+    FOREIGN KEY (QathaaCode) REFERENCES momd..QathaaLookup (QathaaCode),
+    FOREIGN KEY (NahyaCode) REFERENCES momd..NahyaaLookup(NahyaaCode),
+    FOREIGN KEY (MantaqaCode) REFERENCES momd..MantaqaLookup(MantaqaCode)
+)
+
+CREATE TABLE momd..FamilyMembers (
+    FamilyFileIdentifier INT,
+    MemberIdentifier INT,
+    FamilyRelativeType VARCHAR(50),
+    PRIMARY KEY(FamilyFileIdentifier,MemberIdentifier),
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
+    FOREIGN KEY (MemberIdentifier) REFERENCES momd..Member(Identifier)
+)
+GO
+
+CREATE TABLE momd..FamilySponsors (
+    FamilyFileIdentifier INT,
+    SponsorIdentifier INT,
+    SponsoringDate Date,
+    PRIMARY KEY(FamilyFileIdentifier,SponsorIdentifier),
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
+    FOREIGN KEY (SponsorIdentifier) REFERENCES momd..Sponsor(Identifier)
+)
+GO
