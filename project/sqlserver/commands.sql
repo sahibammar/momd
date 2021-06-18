@@ -118,6 +118,12 @@ CREATE TABLE momd..DocumentLookup (
 )
 GO
 
+CREATE TABLE momd..ChangeLookup (
+    ChangeCode INT PRIMARY KEY,
+    ChangeType VARCHAR(50)
+)
+GO
+
 CREATE TABLE momd..AssistanceLookup (
     AssistanceCode INT PRIMARY KEY,
     AssistanceType VARCHAR(50)
@@ -251,5 +257,15 @@ CREATE TABLE momd..FamilyAssistance (
     PRIMARY KEY(FamilyFileIdentifier,AssistanceCode),
     FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
     FOREIGN KEY (AssistanceCode) REFERENCES momd..AssistanceLookup(AssistanceCode)
+)
+GO
+
+CREATE TABLE momd..FamilyFileChanges (
+    FamilyFileIdentifier INT,
+    ChangeCode INT,
+    ChangeDate Date,
+    ChangeNote VARCHAR(1000),
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
+    FOREIGN KEY (ChangeCode) REFERENCES momd..ChangeLookup(ChangeCode)
 )
 GO
