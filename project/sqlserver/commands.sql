@@ -28,99 +28,160 @@ CREATE TABLE momd..employee (
     FOREIGN KEY (department_id) REFERENCES momd..department (department_id)
 )
 GO
--------------------------------------------
-person (نازح)
-  file_number integer (unique, 1st 2 digits: branch_id)
-  branch_id integer
-  full_name string (5 words, no spaces in composed names)
-  mother_name string(3 words)      
-  gender_id integer 
-  birth_year integer
-  martial_status_id 
-  degree_id
-  nationality_id 
-  natioliasim_id
-  condition_id
-  old_job_id
-  current_job_id
-  address (! provenance_id ) 
 
-  
+CREATE TABLE momd..MohafathaLookup (
+    MohafathaCode INT PRIMARY KEY,
+    MohafathaName VARCHAR(50)
+)
+GO
 
-familymemberrelation
- file_number 
- member_id
+CREATE TABLE momd..QathaaLookup (
+    QathaaCode INT PRIMARY KEY,
+    QathaaName VARCHAR(50)
+)
+GO
 
-persondocuments
- file_number 
- document_id
-		
-branch
- branch_id integer
- branch_name string
- 
-gender
- gender_id 
- gender_name
+CREATE TABLE momd..NahyaaLookup (
+    NahyaaCode INT PRIMARY KEY,
+    NahyaaName VARCHAR(50)
+)
+GO
 
-martialstatus
- status_id
- status_name
+CREATE TABLE momd..CampLookup (
+    CampCode INT PRIMARY KEY,
+    CampName VARCHAR(50)
+)
+GO
 
-familymembers
- member_id
- sequence
- relation
- name
- mothername (!)
- gender
- birth_year
- degree_id
- condition_id
+CREATE TABLE momd..EntryReasonLookup (
+    EntryReasonCode INT PRIMARY KEY,
+    EntryReasonType VARCHAR(50)
+)
+GO
 
-medicalconditions
-condition_id
-condition_name
+CREATE TABLE momd..OriginCountryLookup (
+    OriginCountryCode INT PRIMARY KEY,
+    OriginCountryName VARCHAR(50)
+)
+GO
 
-degree
- degree_id
- degree_name
+CREATE TABLE momd..OriginMohafathaLookup (
+    OriginMohafathaCode INT PRIMARY KEY,
+    OriginMohafathayName VARCHAR(50)
+)
+GO
 
-natioliasim
- natioliasim_id
- natioliasim_name
+CREATE TABLE momd..WorkLookup (
+    WorkCode INT PRIMARY KEY,
+    WorkType VARCHAR(50)
+)
+GO
 
-nationality
- nationality_id
- nationality_name
+CREATE TABLE momd..BranchLookup (
+    BranchCode INT PRIMARY KEY,
+    BranchName VARCHAR(50)
+)
+GO
 
-job
- job_id
- job_name
+CREATE TABLE momd..GenderLookup (
+    GenderCode INT PRIMARY KEY,
+    GenderType VARCHAR(50)
+)
+GO
 
-document 
- document_id 
- document_type
- document_name
- document_path 
+CREATE TABLE momd..EducationDegreeLookup (
+    EducationDegreeCode INT PRIMARY KEY,
+    EducationDegreeType VARCHAR(50)
+)
+GO
 
-address 
-provenance_id 
-qada_id
-nahya_id
+CREATE TABLE momd..NationalityLookup (
+    NationalityCode INT PRIMARY KEY,
+    NationalityName VARCHAR(50)
+)
+GO
 
-provenance
- provenance_id 
- provenance_name
+CREATE TABLE momd..NationalisimLookup (
+    NationalisimCode INT PRIMARY KEY,
+    NationalisimName VARCHAR(50)
+)
+GO
 
-qada
- qada_id
- qada_name
- provenance_id
+CREATE TABLE momd..ReligionLookup (
+    ReligionCode INT PRIMARY KEY,
+    ReligionName VARCHAR(50)
+)
+GO
 
-nahya 
- nahya_id
- nahya_name
+CREATE TABLE momd..MartialStatusLookup (
+    MartialStatusCode INT PRIMARY KEY,
+    MartialStatusType VARCHAR(50)
+)
+GO
 
+CREATE TABLE momd..MedicalConditionLookup (
+    MedicalConditionCode INT PRIMARY KEY,
+    MedicalConditionType VARCHAR(50)
+)
+GO
 
+CREATE TABLE momd..NoReturnHomeReasonLookup (
+    NoReturnHomeReasonCode INT PRIMARY KEY,
+    NoReturnHomeReasonType VARCHAR(50)
+)
+GO
 
+CREATE TABLE momd..FamilyFile (
+    FullName VARCHAR(250) NOT NULL,
+    MotherName VARCHAR(250) NOT NULL,
+    Identifier INT,
+    Status VARCHAR(10),
+    BirthYear INT,
+    PhoneNumber INT,
+    MahalaNumber INT,
+    ZuqaqNumber INT,
+    DarNumber VARCHAR(10),
+    EntryDate DATE,
+    RegisterationDate DATE,
+    HaveMissingPerson BIT, 
+    ReturnHomeWilling BIT, 
+    MohafathaCode INT,
+    QathaaCode INT,
+    NahyaCode INT,
+    CampCode INT,
+    EntryReasonCode INT,
+    EntryPlaceCode INT,
+    OriginCountryCode INT,
+    OriginMohafathaCode INT,
+    PreviousWorkCode INT,
+    CurrentWorkCode INT,
+    BranchCode INT,
+    GenderCode INT,
+    EducationDegreeCode INT,
+    NationalityCode INT,
+    NationalisimCode INT,
+    ReligionCode INT,
+    MartialStatusCode INT,
+    MedicalConditionCode INT,
+    NoReturnHomeReasonCode INT,
+    PRIMARY KEY(FullName,MotherName),
+    FOREIGN KEY (MohafathaCode) REFERENCES momd..MohafathaLookup (MohafathaCode),
+    FOREIGN KEY (QathaaCode) REFERENCES momd..QathaaLookup (QathaaCode),
+    FOREIGN KEY (NahyaCode) REFERENCES momd..NahyaaLookup(NahyaaCode),
+    FOREIGN KEY (CampCode) REFERENCES momd..CampLookup(CampCode),
+    FOREIGN KEY (EntryReasonCode) REFERENCES momd..EntryReasonLookup(EntryReasonCode),
+    FOREIGN KEY (EntryPlaceCode) REFERENCES momd..MohafathaLookup (MohafathaCode),
+    FOREIGN KEY (OriginCountryCode) REFERENCES momd..OriginCountryLookup(OriginCountryCode),
+    FOREIGN KEY (OriginMohafathaCode) REFERENCES momd..OriginMohafathaLookup (OriginMohafathaCode),
+    FOREIGN KEY (PreviousWorkCode) REFERENCES momd..WorkLookup(WorkCode),
+    FOREIGN KEY (CurrentWorkCode) REFERENCES momd..WorkLookup(WorkCode),
+    FOREIGN KEY (BranchCode) REFERENCES momd..BranchLookup(BranchCode),
+    FOREIGN KEY (GenderCode) REFERENCES momd..GenderLookup(GenderCode),
+    FOREIGN KEY (EducationDegreeCode) REFERENCES momd..EducationDegreeLookup(EducationDegreeCode),
+    FOREIGN KEY (NationalityCode) REFERENCES momd..NationalityLookup(NationalityCode),
+    FOREIGN KEY (NationalisimCode) REFERENCES momd..NationalisimLookup(NationalisimCode),
+    FOREIGN KEY (ReligionCode) REFERENCES momd..ReligionLookup(ReligionCode),
+    FOREIGN KEY (MartialStatusCode) REFERENCES momd..MartialStatusLookup(MartialStatusCode),
+    FOREIGN KEY (MedicalConditionCode) REFERENCES momd..MedicalConditionLookup(MedicalConditionCode),
+    FOREIGN KEY (NoReturnHomeReasonCode) REFERENCES momd..NoReturnHomeReasonLookup(NoReturnHomeReasonCode)   
+)
