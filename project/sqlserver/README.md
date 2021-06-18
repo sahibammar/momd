@@ -1,6 +1,7 @@
 # SQL Server
 
-In order to create the database and the tables for the MOMD project on Microsoft SQL Server execute the commands in the *commands.sql* file
+In order to create the database and the tables for the MOMD project in Microsoft SQL Server, please execute the commands in the *commands.sql* file
+
 ![Alt Project Database Diagram](./mssqlserver_db_diagram.png?raw=true "Project Database Diagram")            
 
 **Reference**
