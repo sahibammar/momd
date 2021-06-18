@@ -112,7 +112,17 @@ CREATE TABLE momd..MantaqaLookup (
 )
 GO
 
+CREATE TABLE momd..DocumentLookup (
+    DocumentCode INT PRIMARY KEY,
+    DocumentType VARCHAR(50)
+)
+GO
 
+CREATE TABLE momd..AssistanceLookup (
+    AssistanceCode INT PRIMARY KEY,
+    AssistanceType VARCHAR(50)
+)
+GO
 
 CREATE TABLE momd..Member (
     Identifier INT NOT NULL IDENTITY,
@@ -127,8 +137,6 @@ CREATE TABLE momd..Member (
     FOREIGN KEY (GenderCode) REFERENCES momd..GenderLookup(GenderCode)
 )
 GO
-
-
 
 CREATE TABLE momd..FamilyFile (
     Identifier INT NOT NULL IDENTITY,
@@ -185,6 +193,7 @@ CREATE TABLE momd..FamilyFile (
     FOREIGN KEY (MedicalConditionCode) REFERENCES momd..MedicalConditionLookup(MedicalConditionCode),
     FOREIGN KEY (NoReturnHomeReasonCode) REFERENCES momd..NoReturnHomeReasonLookup(NoReturnHomeReasonCode)   
 )
+GO
 
 CREATE TABLE momd..Sponsor (
     Identifier INT NOT NULL IDENTITY,
@@ -205,6 +214,7 @@ CREATE TABLE momd..Sponsor (
     FOREIGN KEY (NahyaCode) REFERENCES momd..NahyaaLookup(NahyaaCode),
     FOREIGN KEY (MantaqaCode) REFERENCES momd..MantaqaLookup(MantaqaCode)
 )
+GO
 
 CREATE TABLE momd..FamilyMembers (
     FamilyFileIdentifier INT,
@@ -223,5 +233,23 @@ CREATE TABLE momd..FamilySponsors (
     PRIMARY KEY(FamilyFileIdentifier,SponsorIdentifier),
     FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
     FOREIGN KEY (SponsorIdentifier) REFERENCES momd..Sponsor(Identifier)
+)
+GO
+
+CREATE TABLE momd..FamilyDocuments (
+    FamilyFileIdentifier INT,
+    DocumentCode INT,
+    PRIMARY KEY(FamilyFileIdentifier,DocumentCode),
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
+    FOREIGN KEY (DocumentCode) REFERENCES momd..DocumentLookup(DocumentCode)
+)
+GO
+
+CREATE TABLE momd..FamilyAssistance (
+    FamilyFileIdentifier INT,
+    AssistanceCode INT,
+    PRIMARY KEY(FamilyFileIdentifier,AssistanceCode),
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
+    FOREIGN KEY (AssistanceCode) REFERENCES momd..AssistanceLookup(AssistanceCode)
 )
 GO
