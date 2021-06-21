@@ -78,6 +78,18 @@ CREATE TABLE momd..EducationDegreeLookup (
     EducationDegreeType VARCHAR(50)
 )
 GO
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'0', NULL)
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'01', N'امي')
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'02', N'يقرا ويكتب')
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'03', N'ابتدائية')
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'04', N'متوسطة')
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'05', N'اعدادية')
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'06', N'دبلوم')
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'07', N'بكالوريوس')
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'08', N'دبلوم عالي')
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'09', N'ماجستير')
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'10', N'دكتوراه')
+INSERT [dbo].[EducationDegreeLookup] ([EducationDegreeCode], [EducationDegreeType]) VALUES (N'11', N'اعلى من الدكتوراه')
 
 CREATE TABLE momd..NationalityLookup (
     NationalityCode INT PRIMARY KEY,
