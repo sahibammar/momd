@@ -464,6 +464,11 @@ CREATE TABLE momd..CampLookup (
     CampName VARCHAR(50)
 )
 GO
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'0', NULL)
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1101', N'مخيم الاهل')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1201', N'مخيم الاصدقاء')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1202', N'مخيم المحبة')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1301', N'مخيم العامرية')
 
 CREATE TABLE momd..EntryReasonLookup (
     EntryReasonCode INT PRIMARY KEY,
