@@ -521,6 +521,28 @@ CREATE TABLE momd..BranchLookup (
     BranchName VARCHAR(50)
 )
 GO
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'0', NULL)
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'11', N'فرع دهوك')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'12', N'فرع الموصل')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'13', N'فرع السليمانية')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'14', N'فرع كركوك')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'15', N'فرع اربيل')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'21', N'فرع ديالى')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'22', N'فرع الانبار')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'23', N'فرع بغداد / الرصافة')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'24', N'فرع بابل')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'25', N'فرع كربلاء')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'26', N'فرع واسط')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'27', N'فرع صلاح الدين')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'28', N'فرع النجف')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'31', N'فرع القادسية')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'32', N'فرع المثنى')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'33', N'فرع ذي قار')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'34', N'فرع ميسان')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'35', N'فرع البصرة')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'41', N'مكتب خانقين')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'47', N'فرع بغداد / الكرخ')
+INSERT [dbo].[BranchLookup] ([BranchCode], [BranchName]) VALUES (N'55', N'مكتب سنجار')
 
 CREATE TABLE momd..GenderLookup (
     GenderCode INT PRIMARY KEY,
