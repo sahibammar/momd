@@ -491,6 +491,7 @@ INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (
 INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'07', N'احداث تخل بالامن العام')
 INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'08', N'تهديد على الحياة والحرية')
 
+--المحافظة--
 CREATE TABLE momd..EntryPlaceLookup (
     EntryPlaceCode INT PRIMARY KEY,
     EntryPlaceName VARCHAR(50)
@@ -580,6 +581,10 @@ CREATE TABLE momd..NoReturnHomeReasonLookup (
     NoReturnHomeReasonType VARCHAR(50)
 )
 GO
+INSERT [dbo].[NoReturnHomeReasonLookup] ([NoReturnHomeReasonCode], [NoReturnHomeReasonType]) VALUES (N'0', NULL)
+INSERT [dbo].[NoReturnHomeReasonLookup] ([NoReturnHomeReasonCode], [NoReturnHomeReasonType]) VALUES (N'01', N'سياسي')
+INSERT [dbo].[NoReturnHomeReasonLookup] ([NoReturnHomeReasonCode], [NoReturnHomeReasonType]) VALUES (N'02', N'امني')
+INSERT [dbo].[NoReturnHomeReasonLookup] ([NoReturnHomeReasonCode], [NoReturnHomeReasonType]) VALUES (N'03', N'اقتصادي')
 
 CREATE TABLE momd..MantaqaLookup (
     MantaqaCode INT PRIMARY KEY,
