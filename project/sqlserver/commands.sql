@@ -1,4 +1,13 @@
-﻿CREATE DATABASE momd
+﻿-- create database
+CREATE DATABASE momd
+GO
+
+-- change collation to Arabic_ci_as
+ALTER DATABASE momd SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+GO
+Alter database momd collate Arabic_ci_as 
+Go
+ALTER DATABASE momd SET MULTI_USER 
 GO
 
 USE momd
@@ -87,6 +96,9 @@ CREATE TABLE momd..ReligionLookup (
     ReligionName VARCHAR(50)
 )
 GO
+insert into momd..ReligionLookup values (1,'مسلم');
+insert into momd..ReligionLookup values (2,'مسيحي');
+
 
 CREATE TABLE momd..MartialStatusLookup (
     MartialStatusCode INT PRIMARY KEY,
@@ -146,6 +158,7 @@ GO
 
 CREATE TABLE momd..FamilyFile (
     Identifier INT NOT NULL IDENTITY,
+    FileNumber VARCHAR(8) NOT NULL,
     FullName VARCHAR(250) NOT NULL,
     MotherName VARCHAR(250) NOT NULL,
     Status VARCHAR(10),
@@ -178,7 +191,7 @@ CREATE TABLE momd..FamilyFile (
     MedicalConditionCode INT,
     NoReturnHomeReasonCode INT,
     PRIMARY KEY(Identifier),
-    CONSTRAINT FamilyFileUNIQUEName UNIQUE(FullName,MotherName),
+    CONSTRAINT FamilyFileUNIQUEName UNIQUE(FullName,MotherName,Status),
     FOREIGN KEY (MohafathaCode) REFERENCES momd..MohafathaLookup (MohafathaCode),
     FOREIGN KEY (QathaaCode) REFERENCES momd..QathaaLookup (QathaaCode),
     FOREIGN KEY (NahyaCode) REFERENCES momd..NahyaaLookup(NahyaaCode),
@@ -272,3 +285,4 @@ CREATE TABLE momd..FamilyFileChanges (
     FOREIGN KEY (ChangeCode) REFERENCES momd..ChangeLookup(ChangeCode)
 )
 GO
+
