@@ -108,9 +108,6 @@ CREATE TABLE momd..ReligionLookup (
     ReligionName VARCHAR(50)
 )
 GO
-insert into momd..ReligionLookup values (1,'مسلم');
-insert into momd..ReligionLookup values (2,'مسيحي');
-
 
 CREATE TABLE momd..MartialStatusLookup (
     MartialStatusCode INT PRIMARY KEY,
@@ -153,6 +150,10 @@ CREATE TABLE momd..AssistanceLookup (
     AssistanceType VARCHAR(50)
 )
 GO
+INSERT [dbo].[AssistanceLookup] ([AssistanceCode], [AssistanceType]) VALUES (N'0', NULL)
+INSERT [dbo].[AssistanceLookup] ([AssistanceCode], [AssistanceType]) VALUES (N'01', N'غذائية')
+INSERT [dbo].[AssistanceLookup] ([AssistanceCode], [AssistanceType]) VALUES (N'02', N'غير غذائية')
+INSERT [dbo].[AssistanceLookup] ([AssistanceCode], [AssistanceType]) VALUES (N'03', N'مالية')
 
 CREATE TABLE momd..Member (
     Identifier INT NOT NULL IDENTITY,
