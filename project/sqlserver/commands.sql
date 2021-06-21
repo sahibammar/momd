@@ -563,6 +563,11 @@ CREATE TABLE momd..ReligionLookup (
     ReligionName VARCHAR(50)
 )
 GO
+INSERT [dbo].[ReligionLookup] ([ReligionCode], [ReligionName]) VALUES (N'0', NULL)
+INSERT [dbo].[ReligionLookup] ([ReligionCode], [ReligionName]) VALUES (N'01', N'مسلم')
+INSERT [dbo].[ReligionLookup] ([ReligionCode], [ReligionName]) VALUES (N'02', N'مسيحي')
+INSERT [dbo].[ReligionLookup] ([ReligionCode], [ReligionName]) VALUES (N'03', N'ايزيدي')
+INSERT [dbo].[ReligionLookup] ([ReligionCode], [ReligionName]) VALUES (N'04', N'صابئي')
 
 CREATE TABLE momd..MartialStatusLookup (
     MartialStatusCode INT PRIMARY KEY,
