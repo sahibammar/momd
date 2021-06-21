@@ -475,6 +475,15 @@ CREATE TABLE momd..EntryReasonLookup (
     EntryReasonType VARCHAR(50)
 )
 GO
+INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'0', NULL)
+INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'01', N'الاضطهاد العرقي')
+INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'02', N'الاضطهاد الديني')
+INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'03', N'اضطهاد قومي')
+INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'04', N'الانتماء الى فئة معينة')
+INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'05', N'اراء سياسية')
+INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'06', N'التعرض الى عنف عام')
+INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'07', N'احداث تخل بالامن العام')
+INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'08', N'تهديد على الحياة والحرية')
 
 CREATE TABLE momd..EntryPlaceLookup (
     EntryPlaceCode INT PRIMARY KEY,
