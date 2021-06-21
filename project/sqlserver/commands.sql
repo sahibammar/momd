@@ -527,6 +527,9 @@ CREATE TABLE momd..GenderLookup (
     GenderType VARCHAR(50)
 )
 GO
+INSERT [dbo].[GenderLookup] ([GenderCode], [GenderType]) VALUES (N'0', NULL)
+INSERT [dbo].[GenderLookup] ([GenderCode], [GenderType]) VALUES (N'1', N'ذكر')
+INSERT [dbo].[GenderLookup] ([GenderCode], [GenderType]) VALUES (N'2', N'انثى')
 
 CREATE TABLE momd..EducationDegreeLookup (
     EducationDegreeCode INT PRIMARY KEY,
