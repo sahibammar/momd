@@ -515,6 +515,13 @@ CREATE TABLE momd..WorkLookup (
     WorkType VARCHAR(50)
 )
 GO
+INSERT [dbo].[WorkLookup] ([WorkCode], [WorkType]) VALUES (N'0', NULL)
+INSERT [dbo].[WorkLookup] ([WorkCode], [WorkType]) VALUES (N'01', N'موظف حكومي')
+INSERT [dbo].[WorkLookup] ([WorkCode], [WorkType]) VALUES (N'02', N'متقاعد')
+INSERT [dbo].[WorkLookup] ([WorkCode], [WorkType]) VALUES (N'03', N'اعمال حرة')
+INSERT [dbo].[WorkLookup] ([WorkCode], [WorkType]) VALUES (N'04', N'عاطل عن العمل')
+INSERT [dbo].[WorkLookup] ([WorkCode], [WorkType]) VALUES (N'05', N'طالب')
+INSERT [dbo].[WorkLookup] ([WorkCode], [WorkType]) VALUES (N'06', N'ربة بيت')
 
 CREATE TABLE momd..BranchLookup (
     BranchCode INT PRIMARY KEY,
