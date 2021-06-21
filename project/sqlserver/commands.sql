@@ -491,7 +491,6 @@ INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (
 INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'07', N'احداث تخل بالامن العام')
 INSERT [dbo].[EntryReasonLookup] ([EntryReasonCode], [EntryReasonType]) VALUES (N'08', N'تهديد على الحياة والحرية')
 
---المحافظة--
 CREATE TABLE momd..EntryPlaceLookup (
     EntryPlaceCode INT PRIMARY KEY,
     EntryPlaceName VARCHAR(50)
