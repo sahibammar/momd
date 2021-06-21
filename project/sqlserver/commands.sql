@@ -465,10 +465,16 @@ CREATE TABLE momd..CampLookup (
 )
 GO
 INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'0', NULL)
-INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1101', N'مخيم الاهل')
-INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1201', N'مخيم الاصدقاء')
-INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1202', N'مخيم المحبة')
-INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1301', N'مخيم العامرية')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1101', N'دوميز 1')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1102', N'دوميز 2')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1103', N'عقرة')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1104', N'كويلان')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1105', N'برده رش')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1301', N'باريكة')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1501', N'دار شكران')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1502', N'كوركوسك')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1503', N'قوش تبه')
+INSERT [dbo].[CampLookup] ([CampCode], [CampName]) VALUES (N'1504', N'باسرمة'))
 
 CREATE TABLE momd..EntryReasonLookup (
     EntryReasonCode INT PRIMARY KEY,
