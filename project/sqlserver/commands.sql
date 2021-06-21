@@ -471,6 +471,12 @@ CREATE TABLE momd..EntryReasonLookup (
 )
 GO
 
+CREATE TABLE momd..EntryPlaceLookup (
+    EntryPlaceCode INT PRIMARY KEY,
+    EntryPlaceName VARCHAR(50)
+)
+GO
+
 CREATE TABLE momd..OriginCountryLookup (
     OriginCountryCode INT PRIMARY KEY,
     OriginCountryName VARCHAR(50)
@@ -619,25 +625,25 @@ CREATE TABLE momd..FamilyFile (
     NoReturnHomeReasonCode INT,
     PRIMARY KEY(Identifier),
     CONSTRAINT FamilyFileUNIQUEName UNIQUE(FullName,MotherName,Status),
-    FOREIGN KEY (MohafathaCode) REFERENCES momd..MohafathaLookup (MohafathaCode),
-    FOREIGN KEY (QathaaCode) REFERENCES momd..QathaaLookup (QathaaCode),
-    FOREIGN KEY (NahyaCode) REFERENCES momd..NahyaaLookup(NahyaaCode),
-    FOREIGN KEY (CampCode) REFERENCES momd..CampLookup(CampCode),
-    FOREIGN KEY (EntryReasonCode) REFERENCES momd..EntryReasonLookup(EntryReasonCode),
-    FOREIGN KEY (EntryPlaceCode) REFERENCES momd..MohafathaLookup (MohafathaCode),
-    FOREIGN KEY (OriginCountryCode) REFERENCES momd..OriginCountryLookup(OriginCountryCode),
-    FOREIGN KEY (OriginMohafathaCode) REFERENCES momd..OriginMohafathaLookup (OriginMohafathaCode),
-    FOREIGN KEY (PreviousWorkCode) REFERENCES momd..WorkLookup(WorkCode),
-    FOREIGN KEY (CurrentWorkCode) REFERENCES momd..WorkLookup(WorkCode),
-    FOREIGN KEY (BranchCode) REFERENCES momd..BranchLookup(BranchCode),
-    FOREIGN KEY (GenderCode) REFERENCES momd..GenderLookup(GenderCode),
-    FOREIGN KEY (EducationDegreeCode) REFERENCES momd..EducationDegreeLookup(EducationDegreeCode),
-    FOREIGN KEY (NationalityCode) REFERENCES momd..NationalityLookup(NationalityCode),
-    FOREIGN KEY (NationalisimCode) REFERENCES momd..NationalisimLookup(NationalisimCode),
-    FOREIGN KEY (ReligionCode) REFERENCES momd..ReligionLookup(ReligionCode),
-    FOREIGN KEY (MartialStatusCode) REFERENCES momd..MartialStatusLookup(MartialStatusCode),
-    FOREIGN KEY (MedicalConditionCode) REFERENCES momd..MedicalConditionLookup(MedicalConditionCode),
-    FOREIGN KEY (NoReturnHomeReasonCode) REFERENCES momd..NoReturnHomeReasonLookup(NoReturnHomeReasonCode)   
+    FOREIGN KEY (MohafathaCode) REFERENCES momd..MohafathaLookup (MohafathaCode) ON UPDATE CASCADE,
+    FOREIGN KEY (QathaaCode) REFERENCES momd..QathaaLookup (QathaaCode) ON UPDATE CASCADE,
+    FOREIGN KEY (NahyaCode) REFERENCES momd..NahyaaLookup(NahyaaCode) ON UPDATE CASCADE,
+    FOREIGN KEY (CampCode) REFERENCES momd..CampLookup(CampCode) ON UPDATE CASCADE,
+    FOREIGN KEY (EntryReasonCode) REFERENCES momd..EntryReasonLookup(EntryReasonCode) ON UPDATE CASCADE,
+    FOREIGN KEY (EntryPlaceCode) REFERENCES momd..EntryPlaceLookup (EntryPlaceCode) ON UPDATE CASCADE,
+    FOREIGN KEY (OriginCountryCode) REFERENCES momd..OriginCountryLookup(OriginCountryCode)  ON UPDATE CASCADE,
+    FOREIGN KEY (OriginMohafathaCode) REFERENCES momd..OriginMohafathaLookup (OriginMohafathaCode) ON UPDATE CASCADE,
+    FOREIGN KEY (PreviousWorkCode) REFERENCES momd..WorkLookup(WorkCode) ON UPDATE CASCADE,
+    FOREIGN KEY (CurrentWorkCode) REFERENCES momd..WorkLookup(WorkCode), -- ON UPDATE CASCADE,
+    FOREIGN KEY (BranchCode) REFERENCES momd..BranchLookup(BranchCode) ON UPDATE CASCADE,
+    FOREIGN KEY (GenderCode) REFERENCES momd..GenderLookup(GenderCode) ON UPDATE CASCADE,
+    FOREIGN KEY (EducationDegreeCode) REFERENCES momd..EducationDegreeLookup(EducationDegreeCode) ON UPDATE CASCADE,
+    FOREIGN KEY (NationalityCode) REFERENCES momd..NationalityLookup(NationalityCode) ON UPDATE CASCADE,
+    FOREIGN KEY (NationalisimCode) REFERENCES momd..NationalisimLookup(NationalisimCode) ON UPDATE CASCADE,
+    FOREIGN KEY (ReligionCode) REFERENCES momd..ReligionLookup(ReligionCode) ON UPDATE CASCADE,
+    FOREIGN KEY (MartialStatusCode) REFERENCES momd..MartialStatusLookup(MartialStatusCode) ON UPDATE CASCADE,
+    FOREIGN KEY (MedicalConditionCode) REFERENCES momd..MedicalConditionLookup(MedicalConditionCode) ON UPDATE CASCADE,
+    FOREIGN KEY (NoReturnHomeReasonCode) REFERENCES momd..NoReturnHomeReasonLookup(NoReturnHomeReasonCode) ON UPDATE CASCADE   
 )
 GO
 
@@ -653,8 +659,8 @@ CREATE TABLE momd..Member (
     FamilyRelativeType VARCHAR(50),
     PRIMARY KEY(Identifier),
     CONSTRAINT MemberUNIQUEName UNIQUE(FullName,MotherName),
-    FOREIGN KEY (GenderCode) REFERENCES momd..GenderLookup(GenderCode),
-    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier)
+    FOREIGN KEY (GenderCode) REFERENCES momd..GenderLookup(GenderCode), -- ON UPDATE CASCADE,
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier) ON UPDATE CASCADE
 )
 GO
 
@@ -672,10 +678,10 @@ CREATE TABLE momd..Sponsor (
     MantaqaCode INT,
     PRIMARY KEY(Identifier),
     CONSTRAINT SponsorUNIQUEName UNIQUE(FullName,MotherName),
-    FOREIGN KEY (MohafathaCode) REFERENCES momd..MohafathaLookup (MohafathaCode),
-    FOREIGN KEY (QathaaCode) REFERENCES momd..QathaaLookup (QathaaCode),
-    FOREIGN KEY (NahyaCode) REFERENCES momd..NahyaaLookup(NahyaaCode),
-    FOREIGN KEY (MantaqaCode) REFERENCES momd..MantaqaLookup(MantaqaCode)
+    FOREIGN KEY (MohafathaCode) REFERENCES momd..MohafathaLookup (MohafathaCode) ON UPDATE CASCADE,
+    FOREIGN KEY (QathaaCode) REFERENCES momd..QathaaLookup (QathaaCode) ON UPDATE CASCADE,
+    FOREIGN KEY (NahyaCode) REFERENCES momd..NahyaaLookup(NahyaaCode) ON UPDATE CASCADE,
+    FOREIGN KEY (MantaqaCode) REFERENCES momd..MantaqaLookup(MantaqaCode) ON UPDATE CASCADE
 )
 GO
 
@@ -684,8 +690,8 @@ CREATE TABLE momd..FamilySponsors (
     SponsorIdentifier INT,
     SponsoringDate Date,
     PRIMARY KEY(FamilyFileIdentifier,SponsorIdentifier),
-    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
-    FOREIGN KEY (SponsorIdentifier) REFERENCES momd..Sponsor(Identifier)
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier), -- ON UPDATE CASCADE,
+    FOREIGN KEY (SponsorIdentifier) REFERENCES momd..Sponsor(Identifier) ON UPDATE CASCADE
 )
 GO
 
@@ -693,8 +699,8 @@ CREATE TABLE momd..FamilyDocuments (
     FamilyFileIdentifier INT,
     DocumentCode INT,
     PRIMARY KEY(FamilyFileIdentifier,DocumentCode),
-    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
-    FOREIGN KEY (DocumentCode) REFERENCES momd..DocumentLookup(DocumentCode)
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier) ON UPDATE CASCADE,
+    FOREIGN KEY (DocumentCode) REFERENCES momd..DocumentLookup(DocumentCode) ON UPDATE CASCADE
 )
 GO
 
@@ -703,8 +709,8 @@ CREATE TABLE momd..FamilyAssistance (
     AssistanceCode INT,
     Amount INT,
     PRIMARY KEY(FamilyFileIdentifier,AssistanceCode),
-    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
-    FOREIGN KEY (AssistanceCode) REFERENCES momd..AssistanceLookup(AssistanceCode)
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier)  ON UPDATE CASCADE,
+    FOREIGN KEY (AssistanceCode) REFERENCES momd..AssistanceLookup(AssistanceCode) ON UPDATE CASCADE
 )
 GO
 
@@ -715,7 +721,7 @@ CREATE TABLE momd..FamilyFileChanges (
     ChangeDate Date,
     ChangeNote VARCHAR(1000),
     PRIMARY KEY(Identifier),
-    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
-    FOREIGN KEY (ChangeCode) REFERENCES momd..ChangeLookup(ChangeCode)
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier) ON UPDATE CASCADE,
+    FOREIGN KEY (ChangeCode) REFERENCES momd..ChangeLookup(ChangeCode) ON UPDATE CASCADE
 )
 GO
