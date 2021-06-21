@@ -569,6 +569,14 @@ CREATE TABLE momd..MartialStatusLookup (
     MartialStatusType VARCHAR(50)
 )
 GO
+INSERT [dbo].[MartialStatusLookup] ([MartialStatusCode], [MartialStatusType]) VALUES (N'0', N'')
+INSERT [dbo].[MartialStatusLookup] ([MartialStatusCode], [MartialStatusType]) VALUES (N'01', N'اعزب')
+INSERT [dbo].[MartialStatusLookup] ([MartialStatusCode], [MartialStatusType]) VALUES (N'02', N'متزوج')
+INSERT [dbo].[MartialStatusLookup] ([MartialStatusCode], [MartialStatusType]) VALUES (N'03', N'مطلق')
+INSERT [dbo].[MartialStatusLookup] ([MartialStatusCode], [MartialStatusType]) VALUES (N'04', N'ارمل')
+INSERT [dbo].[MartialStatusLookup] ([MartialStatusCode], [MartialStatusType]) VALUES (N'05', N'اعزب معيل')
+INSERT [dbo].[MartialStatusLookup] ([MartialStatusCode], [MartialStatusType]) VALUES (N'06', N'باكر فوق 35')
+INSERT [dbo].[MartialStatusLookup] ([MartialStatusCode], [MartialStatusType]) VALUES (N'07', N'منفصل')
 
 CREATE TABLE momd..MedicalConditionLookup (
     MedicalConditionCode INT PRIMARY KEY,
