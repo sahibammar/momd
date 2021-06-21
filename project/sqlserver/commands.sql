@@ -155,20 +155,6 @@ INSERT [dbo].[AssistanceLookup] ([AssistanceCode], [AssistanceType]) VALUES (N'0
 INSERT [dbo].[AssistanceLookup] ([AssistanceCode], [AssistanceType]) VALUES (N'02', N'غير غذائية')
 INSERT [dbo].[AssistanceLookup] ([AssistanceCode], [AssistanceType]) VALUES (N'03', N'مالية')
 
-CREATE TABLE momd..Member (
-    Identifier INT NOT NULL IDENTITY,
-    FullName VARCHAR(250) NOT NULL,
-    MotherName VARCHAR(250) NOT NULL,
-    BirthYear INT,
-    GenderCode INT,
-    MedicalConditions VARCHAR(50),
-    EducationDegree VARCHAR(50),
-    PRIMARY KEY(Identifier),
-    CONSTRAINT MemberUNIQUEName UNIQUE(FullName,MotherName),
-    FOREIGN KEY (GenderCode) REFERENCES momd..GenderLookup(GenderCode)
-)
-GO
-
 CREATE TABLE momd..FamilyFile (
     Identifier INT NOT NULL IDENTITY,
     FileNumber VARCHAR(8) NOT NULL,
@@ -227,6 +213,23 @@ CREATE TABLE momd..FamilyFile (
 )
 GO
 
+CREATE TABLE momd..Member (
+    Identifier INT NOT NULL IDENTITY,
+    FamilyFileIdentifier INT,
+    FullName VARCHAR(250) NOT NULL,
+    MotherName VARCHAR(250) NOT NULL,
+    BirthYear INT,
+    GenderCode INT,
+    MedicalConditions VARCHAR(50),
+    EducationDegree VARCHAR(50),
+    FamilyRelativeType VARCHAR(50),
+    PRIMARY KEY(Identifier),
+    CONSTRAINT MemberUNIQUEName UNIQUE(FullName,MotherName),
+    FOREIGN KEY (GenderCode) REFERENCES momd..GenderLookup(GenderCode),
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier)
+)
+GO
+
 CREATE TABLE momd..Sponsor (
     Identifier INT NOT NULL IDENTITY,
     FullName VARCHAR(250) NOT NULL,
@@ -245,16 +248,6 @@ CREATE TABLE momd..Sponsor (
     FOREIGN KEY (QathaaCode) REFERENCES momd..QathaaLookup (QathaaCode),
     FOREIGN KEY (NahyaCode) REFERENCES momd..NahyaaLookup(NahyaaCode),
     FOREIGN KEY (MantaqaCode) REFERENCES momd..MantaqaLookup(MantaqaCode)
-)
-GO
-
-CREATE TABLE momd..FamilyMembers (
-    FamilyFileIdentifier INT,
-    MemberIdentifier INT,
-    FamilyRelativeType VARCHAR(50),
-    PRIMARY KEY(FamilyFileIdentifier,MemberIdentifier),
-    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier),
-    FOREIGN KEY (MemberIdentifier) REFERENCES momd..Member(Identifier)
 )
 GO
 
