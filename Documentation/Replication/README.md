@@ -100,5 +100,7 @@ Tutorial: Prepare SQL Server for replication (publisher, distributor, subscriber
 
 Tutorial: Configure replication between a server and mobile clients (merge) https://docs.microsoft.com/en-us/sql/relational-databases/replication/tutorial-replicating-data-with-mobile-clients?view=sql-server-ver15
 
+How to Configure MS SQL Server Replication: Complete Walkthrough https://www.nakivo.com/blog/how-to-configure-ms-sql-server-replication-walkthrough/
+
 **Issues**
 SQL Server Replication with 2 systems in different locations https://dba.stackexchange.com/questions/94478/sql-server-replication-with-2-systems-in-different-locations
