@@ -178,7 +178,18 @@ CREATE TABLE momd..SysUser (
 )
 GO
 
+CREATE TABLE momd..SysUserLog (
+    Identifier INT NOT NULL IDENTITY,
+    SysUserIdentifier INT,
+    UserRoleCode INT,
+    BranchCode INT,
+    PRIMARY KEY(Identifier),
+    FOREIGN KEY (UserRoleCode) REFERENCES momd..UserRoleLookup (UserRoleCode) ON UPDATE CASCADE,
+    FOREIGN KEY (BranchCode) REFERENCES momd..BranchLookup (BranchCode) ON UPDATE CASCADE,
+)
+GO
 
+-- Add FamilyFileArchive
 
 CREATE TABLE momd..FamilyFile (
     Identifier INT NOT NULL IDENTITY,
@@ -312,8 +323,11 @@ CREATE TABLE momd..FamilyFileChanges (
     ChangeCode INT,
     ChangeDate Date,
     ChangeNote VARCHAR(1000),
+    -- Add SysUserID 
     PRIMARY KEY(Identifier),
     FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier) ON UPDATE CASCADE,
     FOREIGN KEY (ChangeCode) REFERENCES momd..ChangeLookup(ChangeCode) ON UPDATE CASCADE
 )
 GO
+
+-- combine country with nationality ?
