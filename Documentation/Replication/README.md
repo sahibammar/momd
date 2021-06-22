@@ -1,5 +1,20 @@
 # Replication
 
+**Replication Types**
+
+Snapshot publication:
+The Publisher sends a snapshot of the published data to Subscribers at scheduled intervals.
+
+Transactional publication:
+The Publisher streams transactions to the Subscribers after they receive an initial snapshot of the published data.
+
+Peer-to-Peer publication:
+Peer-Peer publication enables multi-master replication. The publisher streams transactions to all the peers in the topology. All peer nodes can read and write changes and the changes are propagated to all the nodes in the topology.
+
+Merge publication:
+The Publisher and Subscribers can update the published data independently after the Subscribers receive an initial snapshot of the published data. Changes are merged periodically. Microsoft SQL Server Compact Edition can only subscribe to merge publications.
+
+
 **Merge Replication**
 
 - Merge replication, like transactional replication, typically starts with a snapshot of the publication database objects and data. 
@@ -20,7 +35,14 @@ Merge replication allows various sites to work autonomously and later merge upda
 
 
 **References**
+Install SQL Server replication, Jul 26, 2017 https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-replication?view=sql-server-ver15
 
 Merge Replication, Mar 14, 2017 https://docs.microsoft.com/en-us/sql/relational-databases/replication/merge/merge-replication?view=sql-server-ver15
 
 SQL Merge Replication, Jun 17, 2020 https://www.youtube.com/watch?v=rSeiw9-QapQ
+
+**Tutorials**
+
+Tutorial: Prepare SQL Server for replication (publisher, distributor, subscriber) https://docs.microsoft.com/en-us/sql/relational-databases/replication/tutorial-preparing-the-server-for-replication?view=sql-server-ver15
+
+Tutorial: Configure replication between a server and mobile clients (merge) https://docs.microsoft.com/en-us/sql/relational-databases/replication/tutorial-replicating-data-with-mobile-clients?view=sql-server-ver15
