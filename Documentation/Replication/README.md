@@ -2,7 +2,7 @@
 
 **Replication Types**
 
-Snapshot publication:
+**Snapshot publication**:
 The Publisher sends a snapshot of the published data to Subscribers at scheduled intervals.
 
 Transactional publication:
