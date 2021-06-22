@@ -99,3 +99,6 @@ SQL Merge Replication, Jun 17, 2020 https://www.youtube.com/watch?v=rSeiw9-QapQ
 Tutorial: Prepare SQL Server for replication (publisher, distributor, subscriber) https://docs.microsoft.com/en-us/sql/relational-databases/replication/tutorial-preparing-the-server-for-replication?view=sql-server-ver15
 
 Tutorial: Configure replication between a server and mobile clients (merge) https://docs.microsoft.com/en-us/sql/relational-databases/replication/tutorial-replicating-data-with-mobile-clients?view=sql-server-ver15
+
+**Issues**
+SQL Server Replication with 2 systems in different locations https://dba.stackexchange.com/questions/94478/sql-server-replication-with-2-systems-in-different-locations
