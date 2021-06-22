@@ -161,6 +161,25 @@ CREATE TABLE momd..FamilyRelationLookup (
 )
 GO
 
+CREATE TABLE momd..UserRoleLookup (
+    UserRoleCode INT PRIMARY KEY,
+    UserRoleType VARCHAR(50)
+)
+GO
+
+CREATE TABLE momd..SysUser (
+    Identifier INT NOT NULL IDENTITY,
+    Name VARCHAR(50),
+    UserRoleCode INT,
+    BranchCode INT,
+    PRIMARY KEY(Identifier),
+    FOREIGN KEY (UserRoleCode) REFERENCES momd..UserRoleLookup (UserRoleCode) ON UPDATE CASCADE,
+    FOREIGN KEY (BranchCode) REFERENCES momd..BranchLookup (BranchCode) ON UPDATE CASCADE,
+)
+GO
+
+
+
 CREATE TABLE momd..FamilyFile (
     Identifier INT NOT NULL IDENTITY,
     FileNumber VARCHAR(8) NOT NULL,
