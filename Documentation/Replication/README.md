@@ -34,6 +34,7 @@ Merge replication allows various sites to work autonomously and later merge upda
 ![Alt Replication Diagram](./replication_diagram.png?raw=true "Replication Diagram")            
 
 **Configuration**
+
 Connect to the publisher using the following SQL Server login:
 
 Login: momdsubscriber
