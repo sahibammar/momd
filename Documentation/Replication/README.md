@@ -40,7 +40,8 @@ Login: momdsubscriber
 
 password: we34!AF
 
-'
+```
+
 Create the publication.
 Create a script file named 'C:\Users\Ammar\Documents\CreatePublication.sql' with steps to create the publication.
 
@@ -56,7 +57,8 @@ The publication compatibility level will support Subscribers that are servers ru
 Publish the following tables as articles: 
 'FamilyFile'
 Create a snapshot of this publication immediately after the publication is created.
-'
+```
+
 
 
 **References**
