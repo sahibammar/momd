@@ -2,7 +2,7 @@
 
 **Replication Types**
 
-**Snapshot publication**:
+Snapshot publication:
 The Publisher sends a snapshot of the published data to Subscribers at scheduled intervals.
 
 Transactional publication:
@@ -32,6 +32,31 @@ Merge replication is typically used in server-to-client environments. Merge repl
 Merge replication allows various sites to work autonomously and later merge updates into a single, uniform result. Because updates are made at more than one node, the same data may have been updated by the Publisher and by more than one Subscriber. Therefore, conflicts can occur when updates are merged and merge replication provides a number of ways to handle conflicts
 
 ![Alt Replication Diagram](./replication_diagram.png?raw=true "Replication Diagram")            
+
+**Configuration**
+Connect to the publisher using the following SQL Server login:
+
+Login: momdsubscriber
+
+password: we34!AF
+
+'
+Create the publication.
+Create a script file named 'C:\Users\Ammar\Documents\CreatePublication.sql' with steps to create the publication.
+
+The Publisher 'DESKTOP-K0TI2E1\SQLEXPRESS' will be configured with the following options: 
+The Publisher will act as its own Distributor.
+Configure the SQL Server Agent service on 'DESKTOP-K0TI2E1\SQLEXPRESS' to start automatically when the computer is started.
+Use 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\ReplData' as the root snapshot folder for Publishers using this Distributor.
+
+A publication will be created with the following options: 
+Create a merge publication from database 'momd'.
+The Snapshot Agent process will run under the 'SQL Server Agent service' account.
+The publication compatibility level will support Subscribers that are servers running SQL Server 2008 or later.
+Publish the following tables as articles: 
+'FamilyFile'
+Create a snapshot of this publication immediately after the publication is created.
+'
 
 
 **References**
