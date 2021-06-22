@@ -40,8 +40,13 @@ Login: momdsubscriber
 
 password: we34!AF
 
-```
+Connect to the subscriber using the following SQL Server login:
 
+Login: momdpublisher
+
+password: We34!AF
+
+```
 Create the publication.
 Create a script file named 'C:\Users\Ammar\Documents\CreatePublication.sql' with steps to create the publication.
 
@@ -57,6 +62,26 @@ The publication compatibility level will support Subscribers that are servers ru
 Publish the following tables as articles: 
 'FamilyFile'
 Create a snapshot of this publication immediately after the publication is created.
+```
+
+```
+Create subscription(s).
+Create a script file named 'C:\Users\Ammar\Documents\NewSubscription.sql' with steps to create subscription(s).
+
+Create a subscription to publication 'MyPublicationWizzard' from Publisher 'DESKTOP-K0TI2E1\SQLEXPRESS'.
+
+Create subscriptions at the following Subscriber(s):
+
+DESKTOP-K0TI2E1\SQLEXPRESS
+Subscription database: momd2
+Agent location: Distributor 
+Agent schedule: Run continuously 
+Agent process account: SQLServerAgent service account
+Connection to Publisher & Distributor: Impersonate process account
+Connection to Subscriber: Use login 'momdpublisher'
+Initialize: Immediately
+Type: Server
+Priority: 75.00
 ```
 
 
