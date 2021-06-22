@@ -589,6 +589,12 @@ INSERT [dbo].[AssistanceLookup] ([AssistanceCode], [AssistanceType]) VALUES (N'0
 INSERT [dbo].[AssistanceLookup] ([AssistanceCode], [AssistanceType]) VALUES (N'02', N'غير غذائية')
 INSERT [dbo].[AssistanceLookup] ([AssistanceCode], [AssistanceType]) VALUES (N'03', N'مالية')
 
+CREATE TABLE momd..FamilyRelationLookup (
+    FamilyRelationCode INT PRIMARY KEY,
+    FamilyRelationType VARCHAR(50)
+)
+GO
+
 CREATE TABLE momd..FamilyFile (
     Identifier INT NOT NULL IDENTITY,
     FileNumber VARCHAR(8) NOT NULL,
@@ -656,11 +662,12 @@ CREATE TABLE momd..Member (
     GenderCode INT,
     MedicalConditions VARCHAR(50),
     EducationDegree VARCHAR(50),
-    FamilyRelativeType VARCHAR(50),
+    FamilyRelationCode INT,
     PRIMARY KEY(Identifier),
     CONSTRAINT MemberUNIQUEName UNIQUE(FullName,MotherName),
     FOREIGN KEY (GenderCode) REFERENCES momd..GenderLookup(GenderCode), -- ON UPDATE CASCADE,
-    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier) ON UPDATE CASCADE
+    FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier) ON UPDATE CASCADE,
+    FOREIGN KEY (FamilyRelationCode) REFERENCES  momd..FamilyRelationLookup(FamilyRelationCode) ON UPDATE CASCADE
 )
 GO
 
