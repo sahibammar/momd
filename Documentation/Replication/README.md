@@ -102,5 +102,8 @@ Tutorial: Configure replication between a server and mobile clients (merge) http
 
 How to Configure MS SQL Server Replication: Complete Walkthrough https://www.nakivo.com/blog/how-to-configure-ms-sql-server-replication-walkthrough/
 
-**Issues**
+**Troubleshoting**
+
 SQL Server Replication with 2 systems in different locations https://dba.stackexchange.com/questions/94478/sql-server-replication-with-2-systems-in-different-locations
+
+How to fix the “Agent XPs disabled” error https://www.sqlshack.com/how-to-fix-the-agent-xps-disabled-error/
