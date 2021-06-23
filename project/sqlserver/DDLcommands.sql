@@ -189,8 +189,6 @@ CREATE TABLE momd..SysUserLog (
 )
 GO
 
--- Add FamilyFileArchive
-
 CREATE TABLE momd..FamilyFile (
     Identifier INT NOT NULL IDENTITY,
     FileNumber VARCHAR(8) NOT NULL,
@@ -246,6 +244,44 @@ CREATE TABLE momd..FamilyFile (
     FOREIGN KEY (MartialStatusCode) REFERENCES momd..MartialStatusLookup(MartialStatusCode) ON UPDATE CASCADE,
     FOREIGN KEY (MedicalConditionCode) REFERENCES momd..MedicalConditionLookup(MedicalConditionCode) ON UPDATE CASCADE,
     FOREIGN KEY (NoReturnHomeReasonCode) REFERENCES momd..NoReturnHomeReasonLookup(NoReturnHomeReasonCode) ON UPDATE CASCADE   
+)
+GO
+
+CREATE TABLE momd..FamilyFileArchive (
+    Identifier INT NOT NULL,
+    ArchivingDate DATE,
+    FileNumber VARCHAR(8) NOT NULL,
+    FullName VARCHAR(250) NOT NULL,
+    MotherName VARCHAR(250) NOT NULL,
+    Status VARCHAR(10),
+    BirthYear INT,
+    PhoneNumber INT,
+    MahalaNumber INT,
+    ZuqaqNumber INT,
+    DarNumber VARCHAR(10),
+    EntryDate DATE,
+    RegisterationDate DATE,
+    HaveMissingPerson BIT, 
+    ReturnHomeWilling BIT, 
+    MohafathaCode INT,
+    QathaaCode INT,
+    NahyaCode INT,
+    CampCode INT,
+    EntryReasonCode INT,
+    EntryPlaceCode INT,
+    OriginCountryCode INT,
+    OriginMohafathaCode INT,
+    PreviousWorkCode INT,
+    CurrentWorkCode INT,
+    BranchCode INT,
+    GenderCode INT,
+    EducationDegreeCode INT,
+    NationalityCode INT,
+    NationalisimCode INT,
+    ReligionCode INT,
+    MartialStatusCode INT,
+    MedicalConditionCode INT,
+    NoReturnHomeReasonCode INT
 )
 GO
 
@@ -323,10 +359,11 @@ CREATE TABLE momd..FamilyFileChanges (
     ChangeCode INT,
     ChangeDate Date,
     ChangeNote VARCHAR(1000),
-    -- Add SysUserID 
+    SysUserIdentifier INT,
     PRIMARY KEY(Identifier),
     FOREIGN KEY (FamilyFileIdentifier) REFERENCES momd..FamilyFile(Identifier) ON UPDATE CASCADE,
-    FOREIGN KEY (ChangeCode) REFERENCES momd..ChangeLookup(ChangeCode) ON UPDATE CASCADE
+    FOREIGN KEY (ChangeCode) REFERENCES momd..ChangeLookup(ChangeCode) ON UPDATE CASCADE,
+    FOREIGN KEY (SysUserIdentifier) REFERENCES momd..SysUser(Identifier) --ON UPDATE CASCADE
 )
 GO
 
