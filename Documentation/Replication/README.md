@@ -33,6 +33,11 @@ Merge replication allows various sites to work autonomously and later merge upda
 
 ![Alt Replication Diagram](./replication_diagram.png?raw=true "Replication Diagram")            
 
+**Requirements**
+
+1. Standard or Developer version of Mcirosoft SQL server
+2. Installing Replication component
+
 **Configuration**
 
 Connect to the publisher using the following SQL Server login:
