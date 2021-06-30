@@ -37,6 +37,7 @@ Merge replication allows various sites to work autonomously and later merge upda
 
 1. Standard or Developer version of Mcirosoft SQL server
 2. Installing Replication component
+3. Installing latest cummulative update (SQLServer2019-KB5003249-x64) https://www.microsoft.com/en-us/download/confirmation.aspx?id=100809
 
 **Configuration**
 
@@ -98,6 +99,9 @@ Install SQL Server replication, Jul 26, 2017 https://docs.microsoft.com/en-us/sq
 Merge Replication, Mar 14, 2017 https://docs.microsoft.com/en-us/sql/relational-databases/replication/merge/merge-replication?view=sql-server-ver15
 
 SQL Merge Replication, Jun 17, 2020 https://www.youtube.com/watch?v=rSeiw9-QapQ
+
+How do I replicate data over the Internet?
+ https://docs.microsoft.com/en-us/sql/relational-databases/replication/administration/frequently-asked-questions-for-replication-administrators?view=sql-server-ver15#how-do-i-replicate-data-over-the-internet---
 
 **Tutorials**
 

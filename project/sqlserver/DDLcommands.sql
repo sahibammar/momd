@@ -188,15 +188,16 @@ CREATE TABLE momd..SysUserLog (
     FOREIGN KEY (BranchCode) REFERENCES momd..BranchLookup (BranchCode) ON UPDATE CASCADE,
 )
 GO
+-- Add YesNo Lookup table
 
 CREATE TABLE momd..FamilyFile (
     Identifier INT NOT NULL IDENTITY,
     FileNumber VARCHAR(8) NOT NULL,
     FullName VARCHAR(250) NOT NULL,
     MotherName VARCHAR(250) NOT NULL,
-    Status VARCHAR(10),
+    Status VARCHAR(3),
     BirthYear INT,
-    PhoneNumber INT,
+    PhoneNumber VARCHAR(11),
     MahalaNumber INT,
     ZuqaqNumber INT,
     DarNumber VARCHAR(10),
@@ -224,8 +225,8 @@ CREATE TABLE momd..FamilyFile (
     MedicalConditionCode INT,
     NoReturnHomeReasonCode INT,
     PRIMARY KEY(Identifier),
-    CONSTRAINT FamilyFileUNIQUEName UNIQUE(FullName,MotherName,Status),
-    FOREIGN KEY (MohafathaCode) REFERENCES momd..MohafathaLookup (MohafathaCode) ON UPDATE CASCADE,
+    CONSTRAINT FamilyFileUNIQUEName UNIQUE(FullName,MotherName,Status), -- combination of FullName,MotherName and Status must be unique
+    FOREIGN KEY (MohafathaCode) REFERENCES momd..MohafathaLookup (MohafathaCode) ON UPDATE CASCADE, --ensure refrential integrtiy
     FOREIGN KEY (QathaaCode) REFERENCES momd..QathaaLookup (QathaaCode) ON UPDATE CASCADE,
     FOREIGN KEY (NahyaCode) REFERENCES momd..NahyaaLookup(NahyaaCode) ON UPDATE CASCADE,
     FOREIGN KEY (CampCode) REFERENCES momd..CampLookup(CampCode) ON UPDATE CASCADE,
@@ -243,7 +244,6 @@ CREATE TABLE momd..FamilyFile (
     FOREIGN KEY (ReligionCode) REFERENCES momd..ReligionLookup(ReligionCode) ON UPDATE CASCADE,
     FOREIGN KEY (MartialStatusCode) REFERENCES momd..MartialStatusLookup(MartialStatusCode) ON UPDATE CASCADE,
     FOREIGN KEY (MedicalConditionCode) REFERENCES momd..MedicalConditionLookup(MedicalConditionCode) ON UPDATE CASCADE,
-    FOREIGN KEY (NoReturnHomeReasonCode) REFERENCES momd..NoReturnHomeReasonLookup(NoReturnHomeReasonCode) ON UPDATE CASCADE   
 )
 GO
 
