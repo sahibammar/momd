@@ -100,8 +100,16 @@ Merge Replication, Mar 14, 2017 https://docs.microsoft.com/en-us/sql/relational-
 
 SQL Merge Replication, Jun 17, 2020 https://www.youtube.com/watch?v=rSeiw9-QapQ
 
+Publish Data over the Internet Using VPN https://docs.microsoft.com/en-us/sql/relational-databases/replication/publish-data-over-the-internet-using-vpn?redirectedfrom=MSDN&view=sql-server-ver15
+
 How do I replicate data over the Internet?
  https://docs.microsoft.com/en-us/sql/relational-databases/replication/administration/frequently-asked-questions-for-replication-administrators?view=sql-server-ver15#how-do-i-replicate-data-over-the-internet---
+
+Web Synchronization for Merge Replication https://docs.microsoft.com/en-us/sql/relational-databases/replication/web-synchronization-for-merge-replication?view=sql-server-ver15
+
+Topologies for Web Synchronization https://docs.microsoft.com/en-us/sql/relational-databases/replication/topologies-for-web-synchronization?view=sql-server-ver15
+
+Configure Web Synchronization https://docs.microsoft.com/en-us/sql/relational-databases/replication/configure-web-synchronization?view=sql-server-ver15 
 
 **Tutorials**
 
