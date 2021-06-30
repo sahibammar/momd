@@ -58,6 +58,8 @@ Topologies for Web Synchronization https://docs.microsoft.com/en-us/sql/relation
 
 Configure Web Synchronization https://docs.microsoft.com/en-us/sql/relational-databases/replication/configure-web-synchronization?view=sql-server-ver15 
 
+Configure IIS 7 for Web Synchronization https://docs.microsoft.com/en-us/sql/relational-databases/replication/configure-iis-7-for-web-synchronization?view=sql-server-ver15
+
 **Tutorials**
 
 Tutorial: Prepare SQL Server for replication (publisher, distributor, subscriber) https://docs.microsoft.com/en-us/sql/relational-databases/replication/tutorial-preparing-the-server-for-replication?view=sql-server-ver15
