@@ -39,61 +39,8 @@ Merge replication allows various sites to work autonomously and later merge upda
 2. Installing Replication component
 3. Installing latest cummulative update (SQLServer2019-KB5003249-x64) https://www.microsoft.com/en-us/download/confirmation.aspx?id=100809
 
-**Configuration**
-
-Connect to the publisher using the following SQL Server login:
-
-Login: momdsubscriber
-
-password: we34!AF
-
-Connect to the subscriber using the following SQL Server login:
-
-Login: momdpublisher
-
-password: We34!AF
-
-```
-Create the publication.
-Create a script file named 'C:\Users\Ammar\Documents\CreatePublication.sql' with steps to create the publication.
-
-The Publisher 'DESKTOP-K0TI2E1\SQLEXPRESS' will be configured with the following options: 
-The Publisher will act as its own Distributor.
-Configure the SQL Server Agent service on 'DESKTOP-K0TI2E1\SQLEXPRESS' to start automatically when the computer is started.
-Use 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\ReplData' as the root snapshot folder for Publishers using this Distributor.
-
-A publication will be created with the following options: 
-Create a merge publication from database 'momd'.
-The Snapshot Agent process will run under the 'SQL Server Agent service' account.
-The publication compatibility level will support Subscribers that are servers running SQL Server 2008 or later.
-Publish the following tables as articles: 
-'FamilyFile'
-Create a snapshot of this publication immediately after the publication is created.
-```
-
-```
-Create subscription(s).
-Create a script file named 'C:\Users\Ammar\Documents\NewSubscription.sql' with steps to create subscription(s).
-
-Create a subscription to publication 'MyPublicationWizzard' from Publisher 'DESKTOP-K0TI2E1\SQLEXPRESS'.
-
-Create subscriptions at the following Subscriber(s):
-
-DESKTOP-K0TI2E1\SQLEXPRESS
-Subscription database: momd2
-Agent location: Distributor 
-Agent schedule: Run continuously 
-Agent process account: SQLServerAgent service account
-Connection to Publisher & Distributor: Impersonate process account
-Connection to Subscriber: Use login 'momdpublisher'
-Initialize: Immediately
-Type: Server
-Priority: 75.00
-```
-
-
-
 **References**
+
 Install SQL Server replication, Jul 26, 2017 https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-replication?view=sql-server-ver15
 
 Merge Replication, Mar 14, 2017 https://docs.microsoft.com/en-us/sql/relational-databases/replication/merge/merge-replication?view=sql-server-ver15
